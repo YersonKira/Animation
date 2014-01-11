@@ -26,5 +26,11 @@ namespace Animation
         {
             this.InitializeComponent();
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Windows.UI.Xaml.Style style = new Style(typeof(ContentControl));
+            style.Setters.Add(new Setter(ContentControl.TemplateProperty, new DataTemplate() { }));
+            base.OnNavigatedTo(e);
+        }
     }
 }

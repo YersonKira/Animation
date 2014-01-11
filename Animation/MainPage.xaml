@@ -7,6 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
+        <DataTemplate x:Key="template">
+            <Canvas>
+                <TextBlock FontSize="100">Hola a todos</TextBlock>
+            </Canvas>
+        </DataTemplate>
         <Style x:Key="contentControlStyle" TargetType="ContentControl" >
             <Setter Property="Template" >
                 <Setter.Value>
@@ -24,9 +29,7 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <Canvas.Resources>
 
-                            </Canvas.Resources>
                             <TextBlock Text="Hola Mundo" FontSize="100">
                                 <TextBlock.Foreground>
                                     <SolidColorBrush x:Name="brush" Color="Red" />
@@ -37,8 +40,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Canvas x:Key="canvas">
+            <TextBlock Text="Hola" />
+        </Canvas>
     </Page.Resources>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
-        <ContentControl Style="{StaticResource contentControlStyle}" />
+    <Grid Background="{ThemeResource ApplicationForegroundThemeBrush}" RequestedTheme="Light">
+        
+        <!--<ContentControl Style="{StaticResource contentControlStyle}" />-->
+        <!--<ContentControl Content="{Binding Source={StaticResource canvas}}" />-->
+        <ContentControl Content="{Binding Source={StaticResource template}}" />
     </Grid>
 </Page>
